@@ -1,6 +1,5 @@
 [build]
   publish = "."
-  command = "npm run build" # if you have a build command, otherwise omit this line
 
 [[redirects]]
   from = "/*"
