@@ -117,7 +117,8 @@
         <section id="contact">
             <div class="container">
                 <h2>Contact</h2>
-                <form class="contact-form">
+                <form class="contact-form" name="contact" netlify>
+                    <input type="hidden" name="form-name" value="contact">
                     <input type="text" name="name" placeholder="Your Name">
                     <input type="email" name="email" placeholder="Your Email">
                     <textarea name="message" placeholder="Your Message"></textarea>

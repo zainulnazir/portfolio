@@ -78,17 +78,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // Form Validation and Submission
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
+    const formData = new FormData(form);
 
-    if (name && email && message) {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
       formMessage.textContent = "Thank you for your message!";
       formMessage.style.color = "green";
       form.reset();
-    } else {
-      formMessage.textContent = "Please fill out all fields.";
+    })
+    .catch((error) => {
+      formMessage.textContent = "Oops! There was a problem.";
       formMessage.style.color = "red";
-    }
+    });
   });
 });
